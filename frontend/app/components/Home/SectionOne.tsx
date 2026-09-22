@@ -1,9 +1,9 @@
 
 const SectionOne = () => {
   return (
-    <div className="w-full p-[4%] bg-background">
+    <div className="w-full bg-background py-[3%] border-lightGray border-b-[0.1em] flex flex-col justify-between items-center">
 
-      <div className="w-full flex justify-between items-center ">
+      <div className="w-full p-[4%] flex justify-between items-center ">
 
       <div className="flex justify-around items-center">
          <div>
@@ -44,6 +44,80 @@ const SectionOne = () => {
           <span className="text-gray">get your site today</span>
         </div>
       </div>
+
+      </div>
+
+      {/* Grid boxes */}
+
+      <div className="grid grid-cols-4">
+        
+        <div className="w-full px-[3%] border-t-[0.1em] border-lightGray flex gap-4 flex-col items-start ">
+          {/* card topbar */}
+          <div className="w-full flex justify-between items-center">
+            <div className="text-lightGray">01</div>
+            <div className="text-acent">icon</div>
+          </div>
+
+          {/* card header */}
+          <h2 className="text-gray">Development</h2>
+
+          {/* card description */}
+          <p className="text-lightGray text-[0.9rem]">
+            First, fexible systems built for <br />
+            ambitious teams and the next <br />
+            chapter for your business.
+          </p>
+
+        </div>
+
+        <div className="w-full border-lightGray border-t-[0.1em] border-l-[0.1em] flex flex-col items-start gap-4 px-[3%]">
+          
+          <div className="w-full flex justify-between items-center">
+            <div className="text-lightGray">02</div>
+            <div className="text-acent">icon</div>
+          </div>
+
+          <h2 className="text-gray">Web Design</h2>
+
+          <p className="text-lightGray text-[0.9rem]">
+            Digital experience with a point <br />
+            of view, crafted to make <br />
+            brands impossible to ignore.
+          </p>
+        </div>
+
+        <div className="w-full px-[3%] border-t-[0.1em] border-l-[0.1em] border-lightGray flex gap-4 flex-col items-start">
+          
+          <div className="w-full flex justify-between items-center">
+            <div className="text-lightGray">03</div>
+            <div className="text-acent">icon</div>
+          </div>
+
+          <h2 className="text-gray">Identity</h2>
+
+          <p className="text-lightGray text-[0.9rem]">
+            Strategic identities crafted to <br />
+            make brands memorable, meaningful <br />
+            and unmistakably yours.
+          </p>
+        </div>
+
+        <div className="w-full px-[3%] border-t-[0.1em] border-l-[0.1em] border-lightGray flex gap-4 flex-col items-start">
+
+          <div className="w-full flex justify-between items-center">
+            <div className="text-lightGray">04</div>
+            <div className="text-acent">icon</div>
+          </div>
+
+          <h2 className="text-gray">Strategy</h2>
+
+          <p className="text-lightGray text-[0.9rem]">
+            Clear direction that turns <br />
+            ambitious ideas into focused, <br />
+            meaningful brands.
+          </p>
+
+        </div>
 
       </div>
 

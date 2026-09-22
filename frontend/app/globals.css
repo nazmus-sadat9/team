@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+:root {
+  --background: #0d0d0d;
+  --acent: #c4f14d;
+  --gray: #d9d9d9;
+  --lightGray: #a6a6a6;
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-acent: var(--acent);
+  --color-gray: var(--gray);
+  --color-lightGray: var(--lightGray);
+  --font-mainfont: var(--font-mainfont), sans-serif;
+  --font-serif: var(--font-serif), serif;
+}
+
+.homeSection{
+  background-image: linear-gradient(190deg, #3c3c3c, #000);
+}

@@ -1,0 +1,35 @@
+import json from "../../package.json";
+import Link from "next/link";
+import Image from "next/image";
+
+
+const Navbar = () => {
+  return (
+    <div className="w-full z-999 flex justify-between items-center px-[4%] py-[1.5%] border-b-[0.1em] fixed left-0 top-0 border-[#737373] backdrop-blur-lg ">
+      <div className="flex gap-3 items-center justify-start">
+       <div className="w-[0.5rem] aspect-[1/1] bg-acent"></div> 
+        <h2 className="uppercase text-[#fff]">{json.name}</h2>
+      </div>
+
+      <div className=" w-[50%] flex justify-evenly items-center text-gray">
+        <Link href="/">Home</Link>
+        <Link href="">Client Review</Link>
+        <Link href="">Our Team</Link>
+        <Link href="">About Us</Link>
+        <Link href="" 
+        className="md:p-[1%] border-[#737373] border-[0.1em] flex justify-evenly items-center">
+        Let&apos;s Talk
+          <Image
+            src="/arrow_outward.svg"
+            alt="Arrow icon"
+            width={24}
+            height={24}
+            className="w-6 h-6"
+          />
+        </Link>
+      </div>
+    </div>
+  )
+}
+
+export default Navbar;

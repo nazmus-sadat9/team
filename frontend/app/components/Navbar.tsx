@@ -11,7 +11,7 @@ const Navbar = () => {
         <h2 className="uppercase text-[#fff]">{json.name}</h2>
       </div>
 
-      <div className=" w-[50%] flex justify-evenly items-center text-gray">
+      <div className="hidden md:flex w-[50%] justify-evenly items-center text-gray">
         <Link href="/">Home</Link>
         <Link href="">Client Review</Link>
         <Link href="">Our Team</Link>

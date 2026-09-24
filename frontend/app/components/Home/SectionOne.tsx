@@ -1,9 +1,11 @@
+import Image from "next/image";
 
 const SectionOne = () => {
   return (
-    <div className="w-full bg-background py-[3%] border-lightGray border-b-[0.1em] flex flex-col justify-between items-center">
+    <div className="w-full bg-background py-[3%] border-lightGray flex flex-col justify-between items-center">
 
-      <div className="w-full p-[4%] flex justify-between items-center ">
+      <div className="w-full">
+      <div className="w-full p-[4%] flex flex-col md:flex-row justify-between items-center ">
 
       <div className="flex justify-around items-center">
          <div>
@@ -40,8 +42,15 @@ const SectionOne = () => {
           </div>
         </div>
 
-        <div>
-          <span className="text-gray">get your site today</span>
+        <div className="flex gap-2">
+              <span className="text-gray">get your site today</span>
+              
+              <Image 
+                src="/arrow_outward.svg"
+                alt="arrow icon"
+                width={20}
+                height={20}
+              />
         </div>
       </div>
 
@@ -49,7 +58,7 @@ const SectionOne = () => {
 
       {/* Grid boxes */}
 
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 py-[4%]">
         
         <div className="w-full px-[3%] border-t-[0.1em] border-lightGray flex gap-4 flex-col items-start ">
           {/* card topbar */}
@@ -119,6 +128,32 @@ const SectionOne = () => {
 
         </div>
 
+      </div>
+      </div>
+
+      {/* projects */}
+      <div className="w-full flex flex-col">
+        
+        <div className="w-full flex justify-between items-center text-lightGray">
+          
+          <span>Selected work</span>
+          
+          <div className="flex gap-2">
+            <span>View all projects</span>
+            <Image
+              src="/arrow_outward.svg"
+              alt="arrow icon"
+              width={20}
+              height={20}
+            />
+          </div>
+        </div>
+
+        <div className="w-full grid grid-cols-2 gap-5 h-64 p-[4%]">
+          <div className="bg-acent w-full h-full col-span-1 row-span-2"></div>
+          <div className="bg-acent w-full h-full col-span-1"></div>
+          <div className="bg-acent w-full h-full col-span-1"></div>
+        </div>
       </div>
 
     </div>

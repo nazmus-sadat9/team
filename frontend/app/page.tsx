@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Navbar from "./components/Navbar";
 import json from "../package.json"
 import SectionOne from "./components/Home/SectionOne";
@@ -18,11 +19,11 @@ const page = () => {
       <div className="w-full flex flex-col justify-evenly items-start">
         <div className="flex gap-2 justify-around items-center">
           <div className="h-[2px] w-[4rem] bg-acent"></div>
-          <p className="uppercase text-gray text-[0.8rem]">independent digital studio • est.2026</p>
+          <p className="uppercase text-gray text-[clamp(0.5rem,4vw,0.8rem)]">independent digital studio • est.2026</p>
         </div>
 
-        <h2 className="text-[clamp(4rem,6vw,7rem)] leading-[1.3] font-mainfont text-[#fff]">
-          We bring <br /> 
+        <h2 className="text-[clamp(3rem,6vw,7rem)] leading-[1.3] font-mainfont text-[#fff]">
+          We bring <br />
           <span className="italic text-acent">Ideas</span> <br />
           to <span className="italic text-acent">real</span> life!
         </h2>
@@ -37,12 +38,24 @@ const page = () => {
       </div>
 
       <div className="flex justify-start gap-4 ">
-        <button className="bg-acent text-[#000] p-[1%] md:px-[1%] md:py-[0.7%] ">
-          Contact Us
+        <button className="bg-acent flex gap-2 text-[#000] p-[1%] md:px-[1%] md:py-[0.7%] ">
+            <span>Contact Us</span>
+            <Image
+              src="/arrow_outward.svg"
+              alt="arrow icon"
+              width={20}
+              height={20}
+            />
         </button>
 
-        <button className="bg-transparent border-gray border-[0.1em] text-gray p-[1%] md:px-[1%] md:py-[0.7%] ">
-          Explore Our Work
+        <button className="bg-transparent flex gap-2 border-gray border-[0.1em] text-gray p-[1%] md:px-[1%] md:py-[0.7%] ">
+          <span>Explore Our Work</span>
+            <Image
+              src="arrow_outward.svg"
+              alt="arrow icon"
+              width={20}
+              height={20}
+            />
         </button>
       </div>
       </div>

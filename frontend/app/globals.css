@@ -5,6 +5,7 @@
   --acent: #c4f14d;
   --gray: #d9d9d9;
   --lightGray: #a6a6a6;
+  --darkGray: #545454;
 }
 
 @theme {
@@ -12,10 +13,50 @@
   --color-acent: var(--acent);
   --color-gray: var(--gray);
   --color-lightGray: var(--lightGray);
-  --font-mainfont: var(--font-mainfont), sans-serif;
-  --font-serif: var(--font-serif), serif;
+  --font-mainfont: var(--font-bricolage), sans-serif;
+  --font-serif: var(--font-libre-baskerville), Georgia, serif;
+  --color-darkGray: var(--darkGray);
 }
 
-.homeSection{
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+
+html, body {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+.linearBg{
   background-image: linear-gradient(190deg, #3c3c3c, #000);
+}
+
+.navlink {
+  position: relative;
+  &::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 0;
+    height: 1px;
+    background-color: var(--acent);
+    transition: 0.2s ease;
+  }
+}
+
+.navlink:hover::before{
+  width: 100%;
+}
+
+.contactButton{
+  transition: 0.2s ease;
+  &:hover{
+    border-color: var(--acent);
+    color: var(--acent);
+    transform: translateY(-5%);
+  }
 }

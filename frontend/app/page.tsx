@@ -9,7 +9,7 @@ const page = () => {
       
       <Navbar />
 
-      <div className="homeSection w-full h-[100dvh] relative flex flex-col justify-center px-[4%] gap-6">
+      <div className="linearBg w-full h-[100dvh] relative flex flex-col justify-center px-[4%] gap-6">
 
         <div className="hidden md:flex absolute right-0 bottom-[20%] justify-evenly items-center gap-3 rotate-90">
           <span className="text-[#a6a6a6] text-[clamp(0.5rem,4vw,0.8rem)]">scroll to explore</span>

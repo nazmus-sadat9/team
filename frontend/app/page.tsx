@@ -2,6 +2,8 @@ import Image from "next/image";
 import Navbar from "./components/Navbar";
 import json from "../package.json"
 import SectionOne from "./components/Home/SectionOne";
+import SectionTwo from "./components/Home/SectionTwo";
+import SectionThree from "./components/Home/SectionThree";
 
 const page = () => {
   return(
@@ -61,6 +63,10 @@ const page = () => {
       </div>
 
       <SectionOne />
+
+      <SectionTwo />
+
+      <SectionThree />
     </main>
   );
 }

@@ -1,16 +1,20 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Libre_Baskerville } from "next/font/google";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
 import "./globals.css";
+
+config.autoAddCss = false;
 
 // define the bricolage font
 const bricolage = Bricolage_Grotesque({
-  variable: "--font-mainfont",
+  variable: "--font-bricolage",
   subsets: ["latin"],
 });
 
 // define the libreBaskerville font
 const libreBaskerville = Libre_Baskerville({
-  variable: "--font-serif",
+  variable: "--font-libre-baskerville",
   weight: ["400", "700"],
   subsets: ["latin"],
 });

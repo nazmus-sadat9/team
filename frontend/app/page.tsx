@@ -7,7 +7,7 @@ import SectionThree from "./components/Home/SectionThree";
 
 const page = () => {
   return(
-    <main className="w-screen overflow-x-hidden flex flex-col items-center">
+    <main className="w-screen font-mainfont overflow-x-hidden flex flex-col items-center">
       
       <Navbar />
 
@@ -26,8 +26,8 @@ const page = () => {
 
         <h2 className="text-[clamp(3rem,6vw,7rem)] leading-[1.3] font-mainfont text-[#fff]">
           We bring <br />
-          <span className="italic text-acent">Ideas</span> <br />
-          to <span className="italic text-acent">real</span> life!
+          <span className="italic font-serif text-acent">Ideas</span> <br />
+          to <span className="italic font-serif text-acent">real</span> life!
         </h2>
 
         <div className="w-full">

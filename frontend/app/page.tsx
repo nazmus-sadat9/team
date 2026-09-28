@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Navbar from "./components/Navbar";
 import json from "../package.json"
 import SectionOne from "./components/Home/SectionOne";
 import SectionTwo from "./components/Home/SectionTwo";
@@ -9,8 +8,6 @@ const page = () => {
   return(
     <main className="w-screen font-mainfont overflow-x-hidden flex flex-col items-center">
       
-      <Navbar />
-
       <div className="linearBg w-full h-[100dvh] relative flex flex-col justify-center px-[4%] gap-6">
 
         <div className="hidden md:flex absolute right-0 bottom-[20%] justify-evenly items-center gap-3 rotate-90">

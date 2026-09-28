@@ -1,12 +1,9 @@
-import Navbar from "../components/Navbar";
-
 const page = () => {
     return (
         <div className="w-full px-[4%] py-[6%] flex flex-col h-screen bg-background linearBg">
-            <Navbar />
 
             <div className="w-full">
-                <h2 className="text-[clamp(2.5rem,4vw,6rem)] text-gray py-[2%]">
+                <h2 className="text-[clamp(2.5rem,6vw,5rem)] text-gray py-[2%]">
                     Our team
                 </h2>
             </div>

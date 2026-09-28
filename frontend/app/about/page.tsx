@@ -1,10 +1,8 @@
-import Navbar from "../components/Navbar";
 import Image from "next/image";
 
 const page = () => {
   return (
     <div className="linearBg w-full font-mainfont h-screen">
-      <Navbar />
 
       <div className="py-[6%] px-[4%] w-full h-full flex flex-col">
         <div className="w-full">

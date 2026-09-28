@@ -16,9 +16,10 @@ const Navbar = () => {
         <Link className="navlink" href="">Client Review</Link>
         <Link className="navlink" href="/team">Our Team</Link>
         <Link className="navlink" href="/about">About Us</Link>
-        <Link href="" 
-        className="contactButton md:p-[1%] border-[#737373] border-[0.1em] flex justify-evenly items-center">
-        Let&apos;s Talk
+        <Link
+          href="/contact" 
+          className="contactButton md:p-[1%] border-[#737373] border-[0.1em] flex justify-evenly items-center">
+          Let&apos;s Talk
           <Image
             src="/arrow_outward.svg"
             alt="Arrow icon"

@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
+
 @import "tailwindcss";
 
 :root {
+  --serif: "Libre Baskerville", serif;
   --background: #0d0d0d;
   --acent: #c4f14d;
   --gray: #d9d9d9;
@@ -14,7 +17,7 @@
   --color-gray: var(--gray);
   --color-lightGray: var(--lightGray);
   --font-mainfont: var(--font-bricolage), sans-serif;
-  --font-serif: var(--font-libre-baskerville), Georgia, serif;
+  --font-serif: var(--serif);
   --color-darkGray: var(--darkGray);
 }
 
@@ -22,7 +25,6 @@ html::-webkit-scrollbar,
 body::-webkit-scrollbar {
   display: none;
 }
-
 
 html, body {
   -ms-overflow-style: none; 

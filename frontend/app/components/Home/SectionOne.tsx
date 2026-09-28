@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const SectionOne = () => {
   return (
-    <div className="w-full bg-background py-[3%] border-b-[0.1em] border-lightGray flex flex-col justify-between items-center">
+    <div className="w-full bg-background py-[3%] border-b-[0.1em] border-lightGray flex flex-col justify-between items-center font-mainfont">
 
       <div className="w-full">
       <div className="w-full px-[4%] flex flex-col md:flex-row justify-between items-center ">
@@ -11,7 +11,7 @@ const SectionOne = () => {
          <div>
            <h2 className="text-[clamp(4rem,4vw,6rem)] leading-[1.3] font-mainfont text-[#fff]">
             Ideas with <br />
-            <span className="italic text-acent">gravity</span>.
+            <span className="italic text-acent font-serif">gravity</span>.
           </h2>
          </div>
       </div>
@@ -43,14 +43,14 @@ const SectionOne = () => {
         </div>
 
         <div className="flex gap-2">
-              <span className="text-gray">get your site today</span>
+          <span className="text-gray">get your site today</span>
               
-              <Image 
-                src="/arrow_outward.svg"
-                alt="arrow icon"
-                width={20}
-                height={20}
-              />
+          <Image 
+            src="/arrow_outward.svg"
+            alt="arrow icon"
+            width={20}
+            height={20}
+          />
         </div>
       </div>
 
@@ -79,7 +79,7 @@ const SectionOne = () => {
 
         </div>
 
-        <div className="w-full border-lightGray border-t-[0.1em] border-l-[0.1em] flex flex-col items-start gap-4 px-[3%]">
+        <div className="w-full border-lightGray border-t-[0.1em] md:border-l-[0.1em] flex flex-col items-start gap-4 px-[3%]">
           
           <div className="w-full flex justify-between items-center">
             <div className="text-lightGray">02</div>
@@ -95,7 +95,7 @@ const SectionOne = () => {
           </p>
         </div>
 
-        <div className="w-full px-[3%] border-t-[0.1em] border-l-[0.1em] border-lightGray flex gap-4 flex-col items-start">
+        <div className="w-full px-[3%] border-t-[0.1em] md:border-l-[0.1em] border-lightGray flex gap-4 flex-col items-start">
           
           <div className="w-full flex justify-between items-center">
             <div className="text-lightGray">03</div>
@@ -111,7 +111,7 @@ const SectionOne = () => {
           </p>
         </div>
 
-        <div className="w-full px-[3%] border-t-[0.1em] border-l-[0.1em] border-lightGray flex gap-4 flex-col items-start">
+        <div className="w-full px-[3%] border-t-[0.1em] md:border-l-[0.1em] border-lightGray flex gap-4 flex-col items-start">
 
           <div className="w-full flex justify-between items-center">
             <div className="text-lightGray">04</div>

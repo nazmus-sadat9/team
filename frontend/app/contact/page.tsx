@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, type FormEvent, type ChangeEvent } from "react";
 
 const NEEDS = ["Static Page", "Web Service", "Landing Page", "Design", "Others"];
 const BUDGETS = ["500 $", "500-1000 $", "1000-2000 $", "Others"];
@@ -36,7 +36,7 @@ const page = () => {
   const next = () => canContinue && setStep(step + 1);
   const back = () => setStep(step - 1);
 
-  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
+  const handleSubmit = async (e: FormEvent): Promise<void> => {
     e.preventDefault();
 
     if (!canSubmit || loading) return;
@@ -84,7 +84,7 @@ const page = () => {
       <div className="w-[70%] bg-[#0D0D0D9F] md:w-[50%] p-[4%] border-[0.1em] border-darkGray">
         {/* progress */}
         <div className="w-full flex gap-2">
-          <span className="uppercase text-lightGray text-[clamp(0.5rem,4vw,0.8rem)]">
+          <span className="uppercase flex text-lightGray text-[clamp(0.5rem,4vw,0.8rem)]">
             step {step}/3
           </span>
           <div className="w-full h-[3px] bg-lightGray">
@@ -103,7 +103,7 @@ const page = () => {
             </div>
 
             <div className="w-full grid grid-cols-2 gap-4">
-              {NEEDS.map((item: string): Element => (
+              {NEEDS.map((item) => (
                 <button
                   type="button"
                   key={item}
@@ -125,7 +125,7 @@ const page = () => {
             </div>
 
             <div className="w-full grid grid-cols-2 gap-4">
-              {BUDGETS.map((item: string): Element => (
+              {BUDGETS.map((item) => (
                 <button
                   type="button"
                   key={item}
@@ -182,7 +182,7 @@ const page = () => {
                   type="text"
                   name="name"
                   value={name}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                   className="border-darkGray bg-background border-[0.1em] p-[4%]"
                 />
               </div>
@@ -193,7 +193,7 @@ const page = () => {
                   type="email"
                   name="email"
                   value={email}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                   className="border-darkGray bg-background border-[0.1em] p-[4%]"
                 />
               </div>
@@ -204,7 +204,7 @@ const page = () => {
                   type="text"
                   name="company"
                   value={company}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCompany(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setCompany(e.target.value)}
                   className="border-darkGray bg-background border-[0.1em] p-[4%]"
                 />
               </div>
@@ -213,7 +213,7 @@ const page = () => {
                 <label>DESCRIPTION</label>
                 <textarea
                   value={message}
-                  onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
+                  onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
                   className="border-darkGray resize-none h-full bg-background border-[0.1em] p-[4%]"
                 ></textarea>
               </div>

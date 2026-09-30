@@ -5,9 +5,9 @@ const NEEDS = ["Static Page", "Web Service", "Landing Page", "Design", "Others"]
 const BUDGETS = ["500 $", "500-1000 $", "1000-2000 $", "Others"];
 
 const page = () => {
-  const [step, setStep] = useState<number>(1);
 
-  // choices[0] = need, choices[1] = budget
+  // choices states
+  const [step, setStep] = useState<number>(1);
   const [choices, setChoices] = useState<string[]>(["", ""]);
 
   const [name, setName] = useState<string>("");
@@ -15,8 +15,14 @@ const page = () => {
   const [company, setCompany] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
-  const select = (index: number, value: string) => {
-    setChoices((prev) => {
+  // submition states 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+
+
+  const select = (index: number, value: string): void => {
+    setChoices((prev: string[]): string[] => {
       const copy = [...prev];
       copy[index] = value;
       return copy;
@@ -30,17 +36,46 @@ const page = () => {
   const next = () => canContinue && setStep(step + 1);
   const back = () => setStep(step - 1);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
-    if (!canSubmit) return;
 
-    // everything stored in one array
-    const result = [...choices, name, email, company, message];
-    console.log(result); // [need, budget, name, email, company, message]
-    // fetch("/api/contact", { method: "POST", body: JSON.stringify(result) })
+    if (!canSubmit || loading) return;
+
+    setLoading(true);
+    setError("");
+
+    try {
+
+      const res = await fetch("api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", },
+        body: JSON.stringify({
+          name,
+          email,
+          company,
+          message
+        }),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setName("");
+      setEmail("");
+      setCompany("");
+      setMessage("");
+      setSuccess(true);
+
+    } catch (err) {
+      setError("Something went wrong. Please try again.");
+
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const optionClass = (selected: boolean) =>
+  const optionClass = (selected: boolean): string =>
     `px-[4%] bg-background py-[3%] border-[0.1em] text-lightGray text-left cursor-pointer ${selected ? "border-acent" : "border-darkGray"
     }`;
 
@@ -68,11 +103,11 @@ const page = () => {
             </div>
 
             <div className="w-full grid grid-cols-2 gap-4">
-              {NEEDS.map((item) => (
+              {NEEDS.map((item: string): Element => (
                 <button
                   type="button"
                   key={item}
-                  onClick={() => select(0, item)}
+                  onClick={(): void => select(0, item)}
                   className={optionClass(choices[0] === item)}
                 >
                   {item}
@@ -90,11 +125,11 @@ const page = () => {
             </div>
 
             <div className="w-full grid grid-cols-2 gap-4">
-              {BUDGETS.map((item) => (
+              {BUDGETS.map((item: string): Element => (
                 <button
                   type="button"
                   key={item}
-                  onClick={() => select(1, item)}
+                  onClick={(): void => select(1, item)}
                   className={optionClass(choices[1] === item)}
                 >
                   {item}

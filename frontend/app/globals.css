@@ -2,23 +2,24 @@
 
 @import "tailwindcss";
 
-:root {
-  --serif: "Libre Baskerville", serif;
-  --background: #0d0d0d;
-  --acent: #c4f14d;
-  --gray: #d9d9d9;
-  --lightGray: #a6a6a6;
-  --darkGray: #545454;
-}
-
 @theme {
-  --color-background: var(--background);
-  --color-acent: var(--acent);
-  --color-gray: var(--gray);
-  --color-lightGray: var(--lightGray);
   --font-mainfont: var(--font-bricolage), sans-serif;
   --font-serif: var(--serif);
-  --color-darkGray: var(--darkGray);
+  --color-bg: #0a0a0a;
+  --color-card: #121212;
+  --color-line: #1c1c1c;
+  --color-acent: #bfff00;
+  --color-gray: #a3a3a3;
+
+  --font-mainfont: "Roboto", system-ui, Arial, sans-serif;
+
+  --animate-blink: blink 1.6s infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0.2;
+    }
+  }
 }
 
 html::-webkit-scrollbar,
@@ -31,8 +32,12 @@ html, body {
   scrollbar-width: none; 
 }
 
+html{
+  scroll-behavior: smooth;
+}
 .linearBg{
-  background-image: linear-gradient(190deg, #3c3c3c, #000);
+  background: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
 }
 
 .navlink {

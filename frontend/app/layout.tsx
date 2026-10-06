@@ -1,12 +1,6 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Libre_Baskerville } from "next/font/google";
-import { config } from "@fortawesome/fontawesome-svg-core";
-import "@fortawesome/fontawesome-svg-core/styles.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import "./globals.css";
-
-config.autoAddCss = false;
 
 // define the bricolage font
 const bricolage = Bricolage_Grotesque({
@@ -37,9 +31,9 @@ export default function RootLayout({
       className={`${bricolage.variable} ${libreBaskerville.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
+        
         {children}
-        <Footer />
+        
       </body>
     </html>
   );

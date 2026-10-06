@@ -76,18 +76,18 @@ const page = () => {
   };
 
   const optionClass = (selected: boolean): string =>
-    `px-[4%] bg-background py-[3%] border-[0.1em] text-lightGray text-left cursor-pointer ${selected ? "border-acent" : "border-darkGray"
+    `px-[4%] bg-background text-[clamp(0.8rem,4vw,1rem)] py-[3%] border-[0.1em] text-lightGray text-left cursor-pointer ${selected ? "border-acent" : "border-darkGray"
     }`;
 
   return (
-    <div className="linearBg h-screen w-screen flex flex-col justify-evenly items-center py-[6%]">
+    <div className="linearBg min-h-screen w-full flex flex-col justify-center items-center py-[6%]">
       <div className="w-[70%] bg-[#0D0D0D9F] md:w-[50%] p-[4%] border-[0.1em] border-darkGray">
         {/* progress */}
-        <div className="w-full flex gap-2">
-          <span className="uppercase flex text-lightGray text-[clamp(0.5rem,4vw,0.8rem)]">
+        <div className="w-full flex items-center gap-2">
+          <span className="uppercase whitespace-nowrap shrink-0 text-lightGray text-[clamp(0.6rem,1.2vw,0.8rem)]">
             step {step}/3
           </span>
-          <div className="w-full h-[3px] bg-lightGray">
+          <div className="w-full flex-1 h-[3px] bg-lightGray">
             <div
               className="h-full bg-acent transition-all"
               style={{ width: `${(step / 3) * 100}%` }}

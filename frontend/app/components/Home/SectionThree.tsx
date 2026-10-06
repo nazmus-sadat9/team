@@ -3,7 +3,7 @@ import Image from "next/image";
 const SectionThree = () => {
 
   return (
-    <div className="w-full bg-background px-[4%] py-[8%] border-b-[0.1em] border-lightGray">
+    <div className="w-full bg-background px-[4%] py-[8%]">
 
       <div>
         <div className="text-lightGray text-[clamp(0.5rem,4vw,0.8rem)] w-full">
@@ -13,7 +13,7 @@ const SectionThree = () => {
         <div>
           <h2 className="text-gray text-[clamp(2rem,4vw,4rem)]">
             Let&apos;s make <br />
-            <span className="text-acent">something matter.</span>
+            <span className="text-acent italic font-serif">something matter.</span>
           </h2>
         </div>
 
@@ -26,6 +26,7 @@ const SectionThree = () => {
               alt="arrow icon"
               width={20}
               height={20}
+              className="w-5 h-auto"
             />
           </button>
         </div>

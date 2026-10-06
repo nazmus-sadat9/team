@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Libre_Baskerville } from "next/font/google";
+<<<<<<< HEAD
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+=======
+>>>>>>> dev
 import "./globals.css";
 
 // define the bricolage font
@@ -33,9 +36,9 @@ export default function RootLayout({
       className={`${bricolage.variable} ${libreBaskerville.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
+        
         {children}
-        <Footer />
+        
       </body>
     </html>
   );

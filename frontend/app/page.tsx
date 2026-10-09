@@ -1,242 +1,219 @@
-import { ArrowUpRight, ArrowDownRight, Plus, Sparkles } from "lucide-react";
-
-const pad = "px-[clamp(1.5rem,9.7vw,7.5rem)]";
+import Link from "next/link";
+import { CodeXml, PenTool, Bookmark, Compass } from "lucide-react";
+import CopyEmailButton from "../components/CopyEmailButton";
+import Reveal from "../components/Reveal";
+import HeroIntro from "../components/HeroIntro";
+import ScrollHint from "../components/ScrollHint";
+import ReviewsMarquee from "../components/ReviewsMarquee";
+import reviews from "../data/reviews";
+import { ArrowIcon } from "../components/icons";
+import { wrap, eyebrow, btnSolid, btnOutline } from "../components/ui";
 
 const services = [
-  { no: "01", title: "Digital products", text: "Useful, expressive experiences built around what your audience actually needs." },
-  { no: "02", title: "Brand systems", text: "Distinct identities that give ambitious teams a memorable point of view." },
-  { no: "03", title: "Web design", text: "Fast, flexible websites with a little more feeling and a lot more clarity." },
-  { no: "04", title: "Creative direction", text: "The sharp thinking that turns a good idea into something people remember." },
+  {
+    n: "01",
+    title: "Development",
+    text: "Fast, flexible systems built for ambitious teams and the next chapter of your business.",
+    icon: <CodeXml className="h-4 w-4 stroke-accent" aria-hidden="true" />,
+  },
+  {
+    n: "02",
+    title: "Web Design",
+    text: "Digital experience with a point of view, crafted to make brands impossible to ignore.",
+    icon: <PenTool className="h-4 w-4 stroke-accent" aria-hidden="true" />,
+  },
+  {
+    n: "03",
+    title: "Identity",
+    text: "Strategic identities crafted to make brands memorable, meaningful, and unmistakably yours.",
+    icon: <Bookmark className="h-4 w-4 stroke-accent" aria-hidden="true" />,
+  },
+  {
+    n: "04",
+    title: "Strategy",
+    text: "Clear direction that turns ambitious ideas into focused, meaningful brands.",
+    icon: <Compass className="h-4 w-4 stroke-accent" aria-hidden="true" />,
+  },
 ];
 
-const projects = [
-  { tag: "01 / E-commerce", title: "Objects with intention", style: "bg-linear-to-br from-[#1a1d0a] to-[#141608] text-[#6f8a1c]" },
-  { tag: "02 / Identity", title: "A better kind of bold", style: "bg-linear-to-br from-[#1f1708] to-[#161109] text-[#b8741a]" },
-  { tag: "03 / Digital", title: "Soft systems", style: "bg-linear-to-br from-[#0b1822] to-[#0a1218] text-[#2b78b8]" },
-];
-
-const skills = ["DESIGN", "STRATEGY", "CODE", "MOTION"];
-
-const socials = ["Instagram", "LinkedIn", "Facebook", "E-mail"];
-
-const Eyebrow = ({ text }: { text: string }) => {
+export default function HomePage() {
   return (
-    <div className="flex items-center gap-3 text-[10px] font-bold tracking-[0.14em] uppercase text-gray mb-[22px]">
-      <span className="w-6 h-px bg-acent/60"></span>
-      <span>{text}</span>
-    </div>
-  );
-};
-
-const page = () => {
-  return (
-    <main className="w-screen font-mainfont overflow-x-hidden bg-bg text-white leading-normal">
-
-      {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-10 h-10 flex items-center justify-between bg-bg/85 backdrop-blur-sm border-b border-line">
-        <a href="#top" className="flex items-center gap-[10px] text-[10px] font-bold tracking-[0.2em] pl-[clamp(1.5rem,9.7vw,7.5rem)] max-[640px]:pl-6">
-          <span className="w-[6px] h-[6px] bg-acent"></span>
-          HYPERION
-        </a>
-
-        <div className="flex items-center gap-[22px] text-[11px] text-[#ccc] h-full">
-          <a href="#work" className="max-[640px]:hidden">Work</a>
-          <a href="#approach" className="max-[640px]:hidden">Approach</a>
-          <a href="#team" className="max-[640px]:hidden">Team</a>
-          <a href="#contact" className="max-[640px]:hidden">Contact</a>
-          <a href="#contact" className="h-full flex items-center gap-[10px] px-[14px] border border-[#444] text-white font-medium">
-            Let&apos;s talk
-            <ArrowUpRight size={14} strokeWidth={2} />
-          </a>
-        </div>
-      </nav>
-
-      {/* HERO */}
-      <section id="top" className={`relative min-h-screen flex flex-col justify-center pt-20 border-b border-line ${pad}`}>
-        <Eyebrow text="Independent digital studio · Est. 2026" />
-
-        <h1 className="text-[clamp(2.75rem,8vw,5.75rem)] font-black tracking-[-0.04em] leading-[1.05] mb-[34px]">
-          Ideas with <br />
-          <span className="italic text-acent">gravity.</span> <br />
-          Built to <span className="italic text-acent">move</span> <br />
-          people.
-        </h1>
-
-        <p className="text-[13px] leading-loose text-gray max-w-[290px] mb-[70px]">
-          Hyperion is a creative technology studio for brands shaping what&apos;s next. Strategy, design and code — all in one sharp team.
-        </p>
-
-        <div className="flex gap-11 text-[11px] font-bold pl-[18px] max-[700px]:gap-7 max-[700px]:pl-0">
-          <a href="#contact" className="inline-flex items-center gap-2">
-            Start a project
-            <ArrowUpRight size={11} strokeWidth={2} />
-          </a>
-          <a href="#work" className="inline-flex items-center gap-2">
-            See our work
-            <ArrowDownRight size={11} strokeWidth={2} />
-          </a>
-        </div>
-
-        <div className="absolute bottom-6 left-[clamp(1.5rem,9.7vw,7.5rem)] flex items-center gap-2 text-[9px] text-gray">
-          scroll to explore
-          <i className="block w-[3px] h-[10px] bg-acent animate-blink"></i>
-        </div>
-      </section>
-
-      {/* APPROACH */}
-      <section id="approach" className={`pt-24 pb-[70px] border-b border-line ${pad}`}>
-        <div className="grid grid-cols-2 gap-10 items-start max-[700px]:grid-cols-1 max-[700px]:gap-6">
-          <div>
-            <Eyebrow text="01 / The point of view" />
-            <h2 className="text-[clamp(2.125rem,5vw,2.5rem)] font-black tracking-[-0.04em] leading-[1.05]">
-              Make it <span className="italic text-acent">matter.</span>
-            </h2>
-          </div>
-
-          <div className="pt-[34px]">
-            <p className="text-[13px] leading-[1.8] text-gray max-w-[270px] mb-[22px]">
-              We create brands and digital products that earn attention, create feeling and hold under a closer look.
-            </p>
-            <p className="text-[13px] leading-[1.8] text-gray max-w-[270px] mb-[22px]">
-              From thought to final pixel, we bring the full picture into focus.
-            </p>
-            <a href="#contact" className="inline-flex items-center gap-2 text-[12px] font-bold text-acent">
-              Get your site today
-              <ArrowUpRight size={14} strokeWidth={2} />
-            </a>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-9 mt-[70px] max-[700px]:grid-cols-1 max-[700px]:gap-5">
-          {services.map((item) => (
-            <div
-              key={item.no}
-              className="bg-card border border-[#191919] rounded-[4px] p-6 transition-all duration-300 hover:border-[#333] hover:-translate-y-[3px]"
-            >
-              <div className="flex justify-between items-center text-[10px] text-gray mb-[26px]">
-                <span>{item.no}</span>
-                <Plus size={16} className="text-acent" />
-              </div>
-              <h3 className="text-[12px] font-bold mb-3">{item.title}</h3>
-              <p className="text-[11px] leading-[1.8] text-gray">{item.text}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* WORK */}
-      <section id="work" className={`pt-[78px] pb-[70px] border-b border-line ${pad}`}>
-        <div className="flex justify-between items-start">
-          <div>
-            <Eyebrow text="02 / Selected work" />
-            <h2 className="text-[clamp(2.125rem,5vw,2.5rem)] font-black tracking-[-0.04em] leading-[1.05]">
-              Made for the <span className="italic text-acent">curious.</span>
-            </h2>
-          </div>
-          <a href="#work" className="inline-flex items-center gap-2 text-[12px] font-bold text-acent">
-            View all projects
-            <ArrowUpRight size={14} strokeWidth={2} />
-          </a>
-        </div>
-
-        <div className="grid grid-cols-2 gap-6 mt-[70px] max-[700px]:grid-cols-1 max-[700px]:gap-5">
-          {projects.map((item) => (
-            <a
-              key={item.title}
-              href="#work"
-              className={`h-[220px] rounded-[4px] flex items-center px-[70px] max-[700px]:px-9 transition-transform duration-300 hover:-translate-y-[3px] ${item.style}`}
-            >
-              <div>
-                <div className="flex items-center gap-2 text-[9px] font-bold tracking-[0.1em] uppercase">
-                  <Sparkles size={18} strokeWidth={1.6} />
-                  {item.tag}
-                </div>
-                <h3 className="text-[14px] leading-[1.6] mt-[6px] text-white font-bold flex items-start justify-between gap-7">
-                  {item.title}
-                  <ArrowUpRight size={11} strokeWidth={2} className="mt-[5px] shrink-0" />
-                </h3>
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
-
-      {/* TEAM */}
-      <section id="team" className={`pt-[68px] pb-[70px] border-b border-line ${pad}`}>
-        <div className="grid grid-cols-2 gap-10 items-start max-[700px]:grid-cols-1 max-[700px]:gap-6">
-          <div>
-            <Eyebrow text="03 / The team" />
-            <h2 className="text-[clamp(2.125rem,5vw,2.5rem)] font-black tracking-[-0.04em] leading-[1.05]">
-              Small team. <br />
-              <span className="italic text-acent">Big signal.</span>
-            </h2>
-          </div>
-
-          <div className="pt-[34px]">
-            <p className="text-[13px] leading-[1.8] text-gray max-w-[260px] mb-[26px]">
-              Our incredible, passionate developers and designers will help you bring your idea to life.
-            </p>
-            <a href="#team" className="inline-flex items-center gap-2 text-[12px] font-bold text-acent">
-              Meet the team
-              <ArrowUpRight size={14} strokeWidth={2} />
-            </a>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-4 gap-3 mt-[70px] max-[700px]:grid-cols-2">
-          {skills.map((item) => (
-            <div
-              key={item}
-              className="h-[136px] border border-[#1a1a1a] rounded-[4px] bg-linear-to-b from-[#0f120a] to-[#0d0d0b] flex items-end p-6 text-[10px] font-bold tracking-[0.08em]"
-            >
-              {item}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CONTACT */}
-      <section id="contact" className={`py-[76px] border-b border-line ${pad}`}>
-        <Eyebrow text="Have a good one?" />
-        <h2 className="text-[clamp(2.125rem,5vw,2.5rem)] font-black tracking-[-0.04em] leading-[1.05] mt-[34px] mb-10">
-          Let&apos;s make <br />
-          <span className="italic text-acent">something matter.</span>
-        </h2>
-        <a
-          href="mailto:hyperion@gmail.com"
-          className="inline-flex items-center gap-5 text-2xl font-bold tracking-[-0.02em] hover:text-acent transition-colors"
+    <>
+      <HeroIntro>
+        <div
+          className={`${wrap} relative isolate flex min-h-[calc(100svh-75px)] min-h-[calc(100dvh-75px)] flex-col justify-center overflow-clip py-[clamp(48px,9vh,110px)] pb-[clamp(64px,10vh,120px)]`}
         >
-          hyperion@gmail.com
-          <ArrowUpRight size={18} strokeWidth={2} />
-        </a>
-      </section>
+          <div className={`hero-eyebrow ${eyebrow}`}>Independent digital studio · Est. 2026</div>
+          <h1 className="max-w-[14ch] text-[clamp(3.5rem,11vw,9rem)] leading-[0.98] tracking-[-0.02em]">
+            <span className="block overflow-hidden">
+              <span className="hero-line-inner block">We bring</span>
+            </span>
+            <span className="block overflow-hidden">
+              <span className="hero-line-inner block">
+                <em className="text-[1.12em] leading-[0.9]">ideas</em>
+              </span>
+            </span>
+            <span className="block overflow-hidden">
+              <span className="hero-line-inner block">
+                to <em className="text-[1.12em] leading-[0.9]">real</em> life!
+              </span>
+            </span>
+          </h1>
+          <p className="hero-lede mt-[clamp(24px,4vh,36px)] max-w-[28rem] text-[clamp(1rem,1.6vw,1.2rem)] text-[#e4e4e0]">
+            Hyperion is a creative technology studio for the brands shaping what&apos;s next.
+            Strategy, design and code all in one sharp team.
+          </p>
+          <div className="hero-actions mt-[clamp(24px,4vh,36px)] flex flex-wrap gap-3">
+            <Link className={btnSolid} href="/contact">
+              Contact Us <ArrowIcon />
+            </Link>
+            <Link className={btnOutline} href="#work">
+              Explore Our Work <ArrowIcon />
+            </Link>
+          </div>
+          <ScrollHint />
+        </div>
+      </HeroIntro>
 
-      {/* FOOTER */}
-      <footer className={`border-t-2 border-line py-[70px] grid grid-cols-[1.4fr_1.2fr_1.2fr_1fr] gap-6 items-center text-[11px] text-gray max-[700px]:grid-cols-2 max-[700px]:gap-9 ${pad}`}>
-        <div className="flex items-center gap-[10px] text-[10px] font-bold tracking-[0.2em] text-white">
-          <span className="w-[6px] h-[6px] bg-acent"></span>
-          HYPERION
+      <div className="border-t border-line bg-bg">
+        <Reveal
+          className={`${wrap} grid grid-cols-2 items-start gap-[clamp(24px,4vw,64px)] py-[clamp(48px,8vw,88px)] pb-[clamp(48px,7vw,80px)] max-lg:grid-cols-1`}
+        >
+          <h2 className="text-[clamp(2.6rem,6vw,3.6rem)] leading-[1.1]">
+            Ideas with
+            <br />
+            <em className="text-[1.1em]">gravity.</em>
+          </h2>
+          <div className="ml-auto flex w-full max-w-[30rem] flex-col gap-[22px] text-[0.95rem] text-[#e4e4e0] max-lg:ml-0 max-lg:max-w-none">
+            <p>
+              We create brands and digital products that earn attention. Create feeling and hold
+              under a closer look. Just ideas that matter. From thought to final pixel, we bring
+              the full picture into focus.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {["Web", "Brand", "Identity", "Design"].map((t) => (
+                <span
+                  key={t}
+                  className="border border-line px-4 py-1.5 text-[0.72rem] uppercase tracking-[0.08em] transition-all duration-300 hover:-translate-y-0.5 hover:border-accent hover:text-accent"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
+            <Link
+              className="group inline-flex w-fit items-center gap-[14px] text-[0.75rem] uppercase tracking-[0.08em]"
+              href="/contact"
+            >
+              Get your site today{" "}
+              <b className="grid h-11 w-11 place-items-center rounded-full border border-fg transition-all duration-300 group-hover:-rotate-45 group-hover:border-accent group-hover:bg-accent group-hover:text-accent-ink">
+                <ArrowIcon className="h-4 w-4" />
+              </b>
+            </Link>
+          </div>
+        </Reveal>
+
+        <div className={wrap}>
+          <div className="grid grid-cols-4 border-t border-r border-l border-line max-lg:grid-cols-2 max-sm:grid-cols-1">
+            {services.map((s, i) => (
+              <Reveal
+                as="article"
+                key={s.n}
+                delay={i * 90}
+                className="group relative border-r border-line before:absolute before:inset-x-0 before:top-0 before:h-0.5 before:origin-left before:scale-x-0 before:bg-accent before:transition-transform before:duration-500 hover:before:scale-x-100 last:border-r-0 max-lg:[&:nth-child(2)]:border-r-0 max-lg:[&:nth-child(-n+2)]:border-b max-sm:border-r-0 max-sm:[&:not(:last-child)]:border-b"
+              >
+                <div className="flex min-h-[210px] min-w-0 flex-col gap-1.5 p-5 px-6 pb-7 transition-transform duration-300 group-hover:-translate-y-1 max-sm:min-h-0">
+                  <div className="flex items-center justify-between text-[0.72rem] text-muted">
+                    <span>{s.n}</span>
+                    {s.icon}
+                  </div>
+                  <h3 className="mt-7 text-2xl">{s.title}</h3>
+                  <p className="max-w-[16rem] text-[0.8rem] text-muted">{s.text}</p>
+                  <span className="mt-auto pt-[18px] text-muted transition-all duration-300 group-hover:translate-x-[2px] group-hover:-translate-y-[2px] group-hover:text-accent">
+                    <ArrowIcon />
+                  </span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
-        <p className="max-w-[90px] leading-[1.7]">Independent digital studio for the next era.</p>
+        <Reveal className={`${wrap} scroll-mt-[90px] py-[clamp(56px,8vw,96px)]`} id="work">
+          <div className="mb-7 flex flex-wrap items-center justify-between gap-4 text-[0.85rem] text-muted">
+            <span>selected work</span>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 text-[#e4e4e0] transition-colors hover:text-accent"
+            >
+              View All projects <ArrowIcon />
+            </Link>
+          </div>
+          <div className="grid grid-cols-[1.1fr_1.4fr] grid-rows-2 gap-[clamp(12px,1.5vw,20px)] max-lg:grid-cols-1">
+            {["Project placeholder", "Project placeholder", "Project placeholder"].map((t, i) => (
+              <Link
+                key={i}
+                href="/contact"
+                className={`group relative flex min-h-[200px] items-end justify-between gap-3 overflow-hidden bg-accent p-[18px_20px] text-[0.72rem] uppercase tracking-[0.08em] text-accent-ink transition-all duration-300 hover:-translate-y-[5px] hover:shadow-[0_20px_48px_rgba(198,242,78,0.22)] ${i === 0 ? "row-span-2 min-h-[420px] max-lg:row-auto max-lg:min-h-[280px]" : ""}`}
+              >
+                {t}
+                <span className="pointer-events-none absolute inset-0 -translate-x-[120%] bg-gradient-to-br from-transparent via-white/35 to-transparent transition-transform duration-700 group-hover:translate-x-[120%]" />
+              </Link>
+            ))}
+          </div>
+        </Reveal>
 
-        <ul className="grid gap-2">
-          {socials.map((item) => (
-            <li key={item}>
-              <a href={item === "E-mail" ? "mailto:hyperion@gmail.com" : "#"} className="hover:text-white">
-                {item}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        <div>
-          © 2026 <br />
-          Hyperion
+        <div className="border-t border-line py-[clamp(56px,8vw,96px)] pb-10">
+          <Reveal className={`${wrap} grid grid-cols-2 items-center gap-8 max-lg:grid-cols-1`}>
+            <h2 className="text-[clamp(2.6rem,6vw,3.6rem)] leading-[1.1] font-semibold">
+              Small Team.<em className="block text-[1.1em] font-normal">Big signal.</em>
+            </h2>
+            <div>
+              <p className="max-w-[26rem] text-[#e4e4e0]">
+                Our incredible team of passionate developers and designers will help you bring your
+                idea to life.
+              </p>
+              <Link
+                className="mt-3 inline-flex items-center gap-2 text-[0.72rem] uppercase tracking-[0.06em] text-[#cfcfcb] transition-colors hover:text-accent"
+                href="/team"
+              >
+                Meet with our team <ArrowIcon />
+              </Link>
+            </div>
+          </Reveal>
         </div>
-      </footer>
-    </main>
+
+        <Reveal className={`${wrap} scroll-mt-[90px] py-14 pb-20`} id="reviews">
+          <div className="mb-7 flex flex-wrap items-center justify-between gap-4 text-[0.72rem] uppercase tracking-[0.06em] text-muted">
+            <span>Client reviews</span>
+            <span className="flex flex-wrap gap-7">
+              <Link
+                href="/reviews"
+                className="inline-flex items-center gap-2 text-[#e4e4e0] normal-case transition-colors hover:text-accent"
+              >
+                Read all reviews <ArrowIcon />
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center gap-2 text-[#e4e4e0] normal-case transition-colors hover:text-accent"
+              >
+                Review our service <ArrowIcon />
+              </Link>
+            </span>
+          </div>
+          <ReviewsMarquee reviews={reviews} />
+        </Reveal>
+
+        <div className="border-t border-line py-[clamp(56px,8vw,96px)] pb-[clamp(64px,9vw,110px)]">
+          <Reveal className={wrap}>
+            <div className="mb-2 text-[0.72rem] uppercase tracking-[0.06em] text-[#cfcfcb]">
+              Made your mind up yet?
+            </div>
+            <h2 className="text-[clamp(3rem,8vw,5rem)] leading-[1.1]">
+              Let&apos;s make<em className="block text-[1.1em]">something matter.</em>
+            </h2>
+            <CopyEmailButton />
+          </Reveal>
+        </div>
+      </div>
+    </>
   );
-};
-
-export default page;
+}

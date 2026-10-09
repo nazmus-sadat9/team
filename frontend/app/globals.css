@@ -1,69 +1,74 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap');
-
 @import "tailwindcss";
 
 @theme {
-  --font-mainfont: var(--font-bricolage), sans-serif;
-  --font-serif: var(--serif);
-  --color-bg: #0a0a0a;
-  --color-card: #121212;
-  --color-line: #1c1c1c;
-  --color-acent: #bfff00;
-  --color-gray: #a3a3a3;
+  --color-bg: #0d0d0d;
+  --color-bg-top: #3b3b3b;
+  --color-fg: #f3f3ef;
+  --color-muted: #9b9b96;
+  --color-line: #4a4a48;
+  --color-accent: #c6f24e;
+  --color-accent-hover: #d6ff63;
+  --color-accent-ink: #11140a;
+  --color-panel: #1b1b1b;
+  --color-field: #0e0e0e;
+  --color-card: #1e1e1e;
+  --color-star: #f0b429;
+}
 
-  --font-mainfont: "Roboto", system-ui, Arial, sans-serif;
-
-  --animate-blink: blink 1.6s infinite;
-
-  @keyframes blink {
-    50% {
-      opacity: 0.2;
-    }
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg text-fg antialiased;
+    font-family: var(--font-sans), "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  ::selection {
+    background: rgba(198, 242, 78, 0.35);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    font-weight: 400;
+  }
+  em {
+    font-family: var(--font-serif), Georgia, serif;
+    font-style: italic;
+    color: var(--color-accent);
+    font-weight: 400;
+  }
+  button {
+    cursor: pointer;
   }
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none;
+@utility text-balance {
+  text-wrap: balance;
 }
 
-html, body {
-  -ms-overflow-style: none; 
-  scrollbar-width: none; 
+/* GSAP sets initial states inline — keep content visible without JS */
+.gsap-reveal {
+  will-change: opacity, transform;
 }
 
-html{
-  scroll-behavior: smooth;
-}
-.linearBg{
-  background: var(--color-bg);
-  -webkit-font-smoothing: antialiased;
+/* marquee mask (Tailwind can't do mask easily) */
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
 
-.navlink {
-  position: relative;
-  &::before{
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 0;
-    height: 1px;
-    background-color: var(--acent);
-    transition: 0.2s ease;
-  }
-}
-
-.navlink:hover::before{
-  width: 100%;
-}
-
-.contactButton{
-  transition: 0.2s ease;
-  &:hover{
-    border-color: var(--acent);
-    color: var(--acent);
-    transform: translateY(-5%);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 }

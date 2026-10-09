@@ -1,26 +1,24 @@
 {
-  "name": "hyperion",
-  "version": "0.1.0",
+  "name": "hyperion-studio",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
-    "build": "next build --webpack",
-    "start": "next start --webpack"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "gsap": "^3.15.0",
     "lucide-react": "^1.52.0",
-    "next": "16.3.5",
-    "nodemailer": "^10.0.12",
-    "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "next": "^16.4.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "babel-plugin-react-compiler": "^1.0.0",
-    "tailwindcss": "^4",
-    "typescript": "^5"
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
   }
 }

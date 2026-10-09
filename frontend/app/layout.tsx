@@ -1,41 +1,38 @@
+import { Bricolage_Grotesque, Instrument_Serif } from "next/font/google";
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Libre_Baskerville } from "next/font/google";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import type { ReactNode } from "react";
 import "./globals.css";
+import SiteHeader from "../components/SiteHeader";
+import SiteFooter from "../components/SiteFooter";
 
-// define the bricolage font
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-bricolage",
+const sans = Bricolage_Grotesque({
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-sans",
 });
 
-// define the libreBaskerville font
-const libreBaskerville = Libre_Baskerville({
-  variable: "--font-libre-baskerville",
-  weight: ["400", "700"],
+const serif = Instrument_Serif({
   subsets: ["latin"],
+  weight: ["400"],
+  style: ["italic"],
+  variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
-  title: "Hyperion",
-  description: "A software team",
+  title: "Hyperion Studio",
+  description:
+    "Hyperion is a creative technology studio for the brands shaping what's next. Strategy, design and code all in one sharp team.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${bricolage.variable} ${libreBaskerville.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col">
-
-        {children}
-
+    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
+      <body>
+        <div className="flex min-h-dvh flex-col bg-gradient-to-b from-bg-top to-bg to-[780px]">
+          <SiteHeader />
+          <main className="w-full flex-1">{children}</main>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );
